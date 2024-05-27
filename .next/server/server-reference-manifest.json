@@ -1,14 +1,5 @@
 {
-  "node": {
-    "f9f78ceed62fa89c04f3d01cf7d1d14d498693ce": {
-      "workers": {
-        "app/admin/products/new/page": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Ftymofiimysko%2FDesktop%2Fecommerce%2Fsrc%2Fapp%2Fadmin%2F_actions%2Fproducts.ts%22%2C%5B%22addProduct%22%5D%5D%5D&__client_imported__=true!"
-      },
-      "layer": {
-        "app/admin/products/new/page": "action-browser"
-      }
-    }
-  },
+  "node": {},
   "edge": {},
-  "encryptionKey": "T6dH5A0VUrDH+FXf/ePowyGpEhklzdYadoA/tZuXfEk="
+  "encryptionKey": "oA6EKpPwAsscFyOhNYqbuORroUi0YHD+jZhWyLwsdks="
 }
