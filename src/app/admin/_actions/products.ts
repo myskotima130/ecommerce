@@ -32,7 +32,7 @@ export async function addProduct(formData: FormData) {
   await fs.writeFile(filePath, Buffer.from(await file.arrayBuffer()));
 
   await fs.mkdir("public/products", { recursive: true });
-  const imagePath = `products/${crypto.randomUUID()}-${image.name}`;
+  const imagePath = `/products/${crypto.randomUUID()}-${image.name}`;
   await fs.writeFile(
     `public${imagePath}`,
     Buffer.from(await image.arrayBuffer())
@@ -48,5 +48,5 @@ export async function addProduct(formData: FormData) {
     },
   });
 
-  redirect("admin/products");
+  redirect("/admin/products");
 }
