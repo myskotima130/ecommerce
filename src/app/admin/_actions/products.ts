@@ -21,6 +21,7 @@ const addShcema = z.object({
 
 export async function addProduct(formData: FormData) {
   const result = addShcema.safeParse(Object.fromEntries(formData.entries()));
+
   if (result.success === false) return result.error.formErrors.fieldErrors;
 
   const {
