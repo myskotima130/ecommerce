@@ -11,7 +11,7 @@ const imageSchema = fileSchema.refine(
   "Required"
 );
 
-const addShcema = z.object({
+const addSchema = z.object({
   name: z.string().min(1),
   description: z.string().min(1),
   priceInCents: z.coerce.number().int().min(1),
@@ -19,8 +19,13 @@ const addShcema = z.object({
   image: imageSchema.refine((file) => file.size > 0, "Required"),
 });
 
+const editSchema = addSchema.extend({
+  file: fileSchema.optional(),
+  image: fileSchema.optional(),
+});
+
 export async function addProduct(prevState: unknown, formData: FormData) {
-  const result = addShcema.safeParse(Object.fromEntries(formData.entries()));
+  const result = addSchema.safeParse(Object.fromEntries(formData.entries()));
 
   if (result.success === false) return result.error.formErrors.fieldErrors;
 
@@ -53,6 +58,53 @@ export async function addProduct(prevState: unknown, formData: FormData) {
   redirect("/admin/products");
 }
 
+export async function updateProduct(
+  id: string,
+  prevState: unknown,
+  formData: FormData
+) {
+  const result = editSchema.safeParse(Object.fromEntries(formData.entries()));
+
+  if (result.success === false) return result.error.formErrors.fieldErrors;
+
+  const {
+    data: { name, description, priceInCents, file, image },
+  } = result;
+  const product = await db.product.findUnique({ where: { id } });
+
+  if (!product) return notFound();
+
+  let filePath = product.filePath;
+  if (!!file && file.size > 0) {
+    await fs.unlink(product.filePath);
+    filePath = `products/${crypto.randomUUID()}-${file.name}`;
+    await fs.writeFile(filePath, Buffer.from(await file.arrayBuffer()));
+  }
+
+  let imagePath = product.imagePath;
+  if (!!image && image.size > 0) {
+    await fs.unlink(`public${product.imagePath}`);
+    imagePath = `/products/${crypto.randomUUID()}-${image.name}`;
+    await fs.writeFile(
+      `public${imagePath}`,
+      Buffer.from(await image.arrayBuffer())
+    );
+  }
+
+  await db.product.update({
+    where: { id },
+    data: {
+      name,
+      description,
+      priceInCents,
+      filePath,
+      imagePath,
+    },
+  });
+
+  redirect("/admin/products");
+}
+
 export async function toggleProductAvailability(
   id: string,
   isAvailableForPurchase: boolean
@@ -64,4 +116,7 @@ export async function deleteProduct(id: string) {
   const product = await db.product.delete({ where: { id } });
 
   if (product === null) return notFound();
+
+  await fs.unlink(product.filePath);
+  await fs.unlink(`public${product.imagePath}`);
 }
