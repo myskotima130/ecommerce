@@ -49,7 +49,6 @@ async function ProductsTable() {
     },
     orderBy: { name: "asc" },
   });
-
   if (products.length === 0) return <p>No products found</p>;
 
   return (
