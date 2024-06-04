@@ -46,3 +46,29 @@ export function ProductCard({
     </Card>
   );
 }
+
+export function ProductCardSkeleton() {
+  return (
+    <Card className="flex overflow-hidden flex-col">
+      <div className="relative w-full h-auto aspect-video">
+        <div className="h-full w-full animate-pulse bg-gray-200" />
+      </div>
+      <CardHeader>
+        <CardTitle>
+          <div className="h-full w-full animate-pulse bg-gray-200" />
+        </CardTitle>
+        <CardDescription>
+          <div className="h-full w-full animate-pulse bg-gray-200" />
+        </CardDescription>
+      </CardHeader>
+      <CardContent className="flex-grow">
+        <p className="line-clamp-4 animate-pulse bg-gray-200" />
+      </CardContent>
+      <CardFooter>
+        <Button asChild size="lg" className="w-full">
+          <span className="animate-pulse bg-gray-200" />
+        </Button>
+      </CardFooter>
+    </Card>
+  );
+}
