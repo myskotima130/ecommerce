@@ -1,14 +1,15 @@
 import { ProductCard, ProductCardSkeleton } from "@/components/ProductCard";
 import db from "@/db/db";
+import { cache } from "@/lib/cache";
 import { Product } from "@prisma/client";
 import { Suspense } from "react";
 
-function productsFetcher() {
+const productsFetcher = cache(() => {
   return db.product.findMany({
     where: { isAvailableForPurchase: true },
     orderBy: { createdAt: "asc" },
   });
-}
+}, ["/products", "productsFetcher"]);
 
 export default function ProductPage() {
   return (
