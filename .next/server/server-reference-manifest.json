@@ -1,38 +1,14 @@
 {
   "node": {
-    "c79114e68b29b011d90374d6e3e875041f7b030d": {
+    "ce7ee7111d6a4ad54805cfb1f7a2061be066f9b3": {
       "workers": {
-        "app/admin/products/page": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Ftymofiimysko%2FDesktop%2Fecommerce%2Fsrc%2Fapp%2Fadmin%2F_actions%2Fproducts.ts%22%2C%5B%22deleteProduct%22%2C%22updateProduct%22%2C%22toggleProductAvailability%22%2C%22addProduct%22%5D%5D%5D&__client_imported__=true!"
+        "app/(customerFacing)/products/[id]/purchase/page": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Ftymofiimysko%2FDesktop%2Fecommerce%2Fsrc%2Fapp%2F_actions%2Forders.ts%22%2C%5B%22userOrderExists%22%5D%5D%5D&__client_imported__=true!"
       },
       "layer": {
-        "app/admin/products/page": "action-browser"
-      }
-    },
-    "d502319a9d20cc6fe940454a56908a2239dbfe28": {
-      "workers": {
-        "app/admin/products/page": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Ftymofiimysko%2FDesktop%2Fecommerce%2Fsrc%2Fapp%2Fadmin%2F_actions%2Fproducts.ts%22%2C%5B%22deleteProduct%22%2C%22updateProduct%22%2C%22toggleProductAvailability%22%2C%22addProduct%22%5D%5D%5D&__client_imported__=true!"
-      },
-      "layer": {
-        "app/admin/products/page": "action-browser"
-      }
-    },
-    "d6e2d16469a0418b969fc95e70d07223bc93f884": {
-      "workers": {
-        "app/admin/products/page": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Ftymofiimysko%2FDesktop%2Fecommerce%2Fsrc%2Fapp%2Fadmin%2F_actions%2Fproducts.ts%22%2C%5B%22deleteProduct%22%2C%22updateProduct%22%2C%22toggleProductAvailability%22%2C%22addProduct%22%5D%5D%5D&__client_imported__=true!"
-      },
-      "layer": {
-        "app/admin/products/page": "action-browser"
-      }
-    },
-    "f9f78ceed62fa89c04f3d01cf7d1d14d498693ce": {
-      "workers": {
-        "app/admin/products/page": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Ftymofiimysko%2FDesktop%2Fecommerce%2Fsrc%2Fapp%2Fadmin%2F_actions%2Fproducts.ts%22%2C%5B%22deleteProduct%22%2C%22updateProduct%22%2C%22toggleProductAvailability%22%2C%22addProduct%22%5D%5D%5D&__client_imported__=true!"
-      },
-      "layer": {
-        "app/admin/products/page": "action-browser"
+        "app/(customerFacing)/products/[id]/purchase/page": "action-browser"
       }
     }
   },
   "edge": {},
-  "encryptionKey": "eTr79U0gHiqPXfClZ1kx3+pubY2x/fPeE6lTYQg2Yq4="
+  "encryptionKey": "/1uBr27DA7JM5/vKwq2AtKmuGol8IAkAM6NysqrXOVg="
 }
