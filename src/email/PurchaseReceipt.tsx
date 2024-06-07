@@ -12,13 +12,20 @@ import { OrderInformation } from "./components/OrderInformation";
 type PurchaseReceiptEmailProps = {
   product: {
     name: string;
+    imagePath: string;
+    description: string;
   };
   order: { id: string; createdAt: Date; pricePaidInCents: number };
   downloadVerificationId: string;
 };
 
 PurchaseReceiptEmail.PreviewProps = {
-  product: { name: "Product Name" },
+  product: {
+    name: "Product Name",
+    imagePath:
+      "/products/8b01d4eb-76cd-4bdf-b268-1cac43665493-DSC_0001 (2).jpg",
+    description: "Product Description",
+  },
   order: {
     id: crypto.randomUUID(),
     createdAt: new Date(),
