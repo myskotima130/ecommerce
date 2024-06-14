@@ -21,8 +21,8 @@ export default function DiscountCodes() {
       </div>
       <DiscountsTable />
 
-      <div className="mt-8">
-        <h2 className="text-xl font-bold">Expired Coupons</h2>
+      <div className="mt-8 w-full">
+        <h2 className="text-xl font-bold ">Expired Coupons</h2>
         <DiscountsTable />
       </div>
     </>
